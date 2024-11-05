@@ -1,24 +1,27 @@
-import { useState } from 'react'
-import './App.css'
-import { useEffect } from 'react';
+import { useState } from "react";
+import "./App.css";
+import "./Foods.css";
+import { useEffect } from "react";
+import Foods from "./Foods";
 
 function App() {
-
   const [foods, setFoods] = useState([]);
-  useEffect(
-    () => {
-      fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    }
-    ,[]
-  );
+  useEffect(() => {
+    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
+      .then((res) => res.json())
+      .then((data) => setFoods(data.categories));
+  }, []);
 
   return (
     <>
-     <h1>React Conditionals</h1>
+      <h1>Foods: {foods.categories?.length}</h1>
+      <div className="foods-section">
+        {foods.map((food) => (
+          <Foods key={food.categories?.idCategory} food={food} />
+        ))}
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
