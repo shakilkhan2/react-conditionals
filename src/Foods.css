@@ -8,5 +8,5 @@
 .food-card{
     border: 1px solid rebeccapurple;
     border-radius: 10px;
-    background-color: purple;
+    background-color: rgba(128, 0, 128, 0.199);
 }

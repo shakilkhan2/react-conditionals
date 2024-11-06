@@ -6,6 +6,14 @@ import Foods from "./Foods";
 
 function App() {
   const [foods, setFoods] = useState([]);
+  const [boughtItems, setBoughtItems] = useState([]);
+
+const handleBoughtItems = (food) => {
+  const newBoughtItems = [...boughtItems, food];
+  setBoughtItems(newBoughtItems);
+  console.log(food)
+}
+
   useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
       .then((res) => res.json())
@@ -13,14 +21,26 @@ function App() {
   }, []);
 
   return (
-    <>
-      <h1>Foods: {foods.length}</h1>
+    <div>
+      <div>
+        <h2>Bought Items: {boughtItems.length}</h2>
+        <ul>
+          {boughtItems.map((item) => (
+            <li key={item.idCategory}>{item.strCategory}</li>
+          ))}
+        </ul>
+      </div>
+      <h2>Foods: {foods.length}</h2>
       <div className="foods-section">
         {foods.map((food) => (
-          <Foods key={food.idCategory} food={food} />
+          <Foods
+            key={food.idCategory}
+            food={food}
+            handleBoughtItems={() => handleBoughtItems(food)}
+          />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
