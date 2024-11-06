@@ -1,14 +1,23 @@
+import { useState } from "react";
 import "./Foods.css"
 const Foods = ({ food }) => {
-    console.log(food);
+   
     const { strCategory, strCategoryThumb, strCategoryDescription } = food;
+    const [bought, setBought] = useState(false);
+
+    const handleBuyNow = () => {
+        setBought(!bought);
+    }
+
     return (
-        <div className="food-card">
-            <h2>{strCategory}</h2>
-            <img src={strCategoryThumb} alt="" />
-            <p>{strCategoryDescription}</p>
-            <button>Buy Now</button>
-        </div>
+      <div className="food-card">
+        <h2>{strCategory}</h2>
+        <img src={strCategoryThumb} alt="" />
+        <p>{strCategoryDescription}</p>
+        <button onClick={handleBuyNow} disabled={bought}>
+          {bought ? "Bought" : "Buy Now"}
+        </button>
+      </div>
     );
 };
 

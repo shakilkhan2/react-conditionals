@@ -14,10 +14,10 @@ function App() {
 
   return (
     <>
-      <h1>Foods: {foods.categories?.length}</h1>
+      <h1>Foods: {foods.length}</h1>
       <div className="foods-section">
         {foods.map((food) => (
-          <Foods key={food.categories?.idCategory} food={food} />
+          <Foods key={food.idCategory} food={food} />
         ))}
       </div>
     </>
