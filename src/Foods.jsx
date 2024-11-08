@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Foods.css";
 const Foods = ({ food, handleBoughtItems }) => {
+  console.log(food)
   const { strCategory, strCategoryThumb, strCategoryDescription } = food;
   const [bought, setBought] = useState(false);
 
