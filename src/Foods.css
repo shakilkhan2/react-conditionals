@@ -7,10 +7,10 @@
 }
 
 .food-card{
-    border: 1px solid rebeccapurple;
+    border: 2px solid rebeccapurple;
     border-radius: 10px;
     background-color: rgba(128, 0, 128, 0.199);
-    box-shadow: 10px;
+    box-shadow: 100px;
     padding: 15px;
     text-align: justify;
 }
