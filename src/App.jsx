@@ -24,11 +24,11 @@ const handleBoughtItems = (food) => {
     <div>
       <div>
         <h2>Bought Items: {boughtItems.length}</h2>
-        <ul>
+        <ol>
           {boughtItems.map((item) => (
             <li key={item.idCategory}>{item.strCategory}</li>
           ))}
-        </ul>
+        </ol>
       </div>
       <h2>Foods: {foods.length}</h2>
       <div className="foods-section">
